@@ -5,8 +5,8 @@ const {
   login, 
   getMe,
   updatePreferences 
-} = require('../controllers/authController');
-const { protect } = require('../middleware/auth');
+} = require('../controllers/auth.controller');
+const { protect } = require('../middlewares/auth.middleware');
 
 // Register and login routes (public)
 router.post('/register', register);

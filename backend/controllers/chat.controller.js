@@ -1,8 +1,8 @@
 
 // src/controllers/chatController.js
-const Chat = require('../models/Chat');
-const User = require('../models/User');
-const aiService = require('../services/aiService');
+const Chat = require('../models/chat.model');
+const User = require('../models/user.model');
+const aiService = require('../services/ai.service');
 
 // Get all chats for a user
 exports.getChats = async (req, res) => {
