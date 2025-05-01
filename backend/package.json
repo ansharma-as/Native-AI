@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.20.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "netlify-lambda": "^2.0.16",
+    "sentiment": "^5.0.2",
+    "serverless-http": "^3.2.0"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "google-hackathon-gemin--chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansharma-as/Google-hackathon.git"
+  },
+  "author": "Ansh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ansharma-as/Google-hackathon/issues"
+  },
+  "homepage": "https://github.com/ansharma-as/Google-hackathon#readme"
+}
