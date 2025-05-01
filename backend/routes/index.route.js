@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const authRoutes = require('./auth');
-const chatRoutes = require('./chat');
+const authRoutes = require('./auth.route');
+const chatRoutes = require('./chat.route');
 
 // Mount routes
 router.use('/auth', authRoutes);

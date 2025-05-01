@@ -8,8 +8,8 @@ const {
   deleteChat,
   downloadModel,
   checkModelStatus
-} = require('../controllers/chatController');
-const { protect } = require('../middleware/auth');
+} = require('../controllers/chat.controller');
+const { protect } = require('../middlewares/auth.middleware');
 
 // Protect all chat routes
 router.use(protect);
