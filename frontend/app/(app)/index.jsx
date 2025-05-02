@@ -3,7 +3,8 @@ import React, { useContext, useEffect } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 import { ChatContext } from '../../contexts/ChatContext';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -14,6 +15,7 @@ export default function HomeScreen() {
 
   const handleNewChat = async () => {
     const newChat = await createChat();
+    console.log("ansh11")
     if (newChat) {
       router.push(`/chat/${newChat.id}`);
     }
@@ -29,10 +31,10 @@ export default function HomeScreen() {
     .slice(0, 5);
 
   return (
-    <SafeAreaView className="flex-1 bg-gray-100" edges={['bottom']}>
+    <SafeAreaView className="flex-1 bg-gray-100" edges={['bottom' , "top"]}>
       <ScrollView className="flex-1">
         <View className="p-5 pt-3">
-          <Text className="text-3xl font-bold text-gray-800">Hello, {user?.name || 'User'}</Text>
+          <Text className="text-3xl font-bold text-gray-800 mt-safe-or-20">Hello, {user?.name || 'User'}</Text>
           <Text className="text-base text-gray-600 mt-1">What can I help you with today?</Text>
         </View>
 

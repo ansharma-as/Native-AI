@@ -1,7 +1,7 @@
 // app/_layout.jsx
 import { Slot, Stack } from 'expo-router';
 import { AuthProvider } from '../contexts/AuthContext';
-import { ChatProvider } from '../contexts/ChatContext';
+import { ChatProvider } from '@/contexts/ChatContext';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View } from 'react-native';
@@ -12,11 +12,11 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
-      {/* <AuthProvider> */}
-        {/* <ChatProvider> */}
+      <AuthProvider>
+        <ChatProvider>
           <Slot />
-        {/* </ChatProvider> */}
-      {/* </AuthProvider> */}
+        </ChatProvider>
+      </AuthProvider>
     </SafeAreaProvider>
   );
 }

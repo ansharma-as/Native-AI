@@ -3,7 +3,8 @@ import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { ChatContext } from '../../../contexts/ChatContext';
 

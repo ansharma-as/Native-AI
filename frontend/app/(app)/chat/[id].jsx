@@ -12,7 +12,8 @@ import {
   Alert,
 } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ChatContext } from '../../../contexts/ChatContext';
 import { AuthContext } from '../../../contexts/AuthContext';
@@ -40,7 +41,13 @@ const MessageBubble = ({ message, isUser }) => {
 
 // Main Chat Screen
 export default function ChatScreen() {
+    console.log('Raw params:', JSON.stringify(useLocalSearchParams()));
+
+
+    const params = useLocalSearchParams();
+console.log('ChatScreen params:', JSON.stringify(params));
   const { id } = useLocalSearchParams();
+  console.log('ChatScreen', id);
   const { user } = useContext(AuthContext);
   const { 
     loadChat, 
@@ -49,6 +56,7 @@ export default function ChatScreen() {
     loading,
     isModelDownloaded,
   } = useContext(ChatContext);
+  console.log('currentChat', currentChat);
   
   const [inputMessage, setInputMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
@@ -69,7 +77,8 @@ export default function ChatScreen() {
     setInputMessage('');
     
     try {
-      await sendMessage(id, messageCopy);
+        console.log('Sending message: id :', currentChat._id , "message", messageCopy);
+      await sendMessage(currentChat._id, messageCopy);
     } catch (error) {
       Alert.alert('Error', 'Failed to send message. Please try again.');
       setInputMessage(messageCopy);

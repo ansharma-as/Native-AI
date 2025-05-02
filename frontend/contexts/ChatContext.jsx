@@ -54,9 +54,12 @@ export function ChatProvider({ children }) {
 
   // Create a new chat
   const createChat = async (title = 'New Chat') => {
+    
     setLoading(true);
     try {
+        console.log("Ansh22")
       const newChat = await chatService.createChat(title);
+      console.log("Ansh33")
       setChats((prevChats) => [...prevChats, newChat]);
       setCurrentChat(newChat);
       return newChat;
@@ -106,8 +109,11 @@ export function ChatProvider({ children }) {
             text: "Use Online Mode",
             onPress: async () => {
               try {
+                console.log("reaching here in chat context")
                 const response = await chatService.sendMessage(chatId, message, false);
                 updateChatWithNewMessage(chatId, message, response);
+                console.log("----------------------------------------------------------------------");
+                console.log('Response:', response);
                 return response;
               } catch (err) {
                 setError(err.message || 'Failed to send message');

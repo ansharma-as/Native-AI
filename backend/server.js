@@ -139,10 +139,10 @@ const limiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 minutes
   max: 100 // limit each IP to 100 requests per windowMs
 });
-app.use(limiter);
+// app.use(limiter);
 
 // Prevent http param pollution
-app.use(hpp());
+// app.use(hpp());
 
 // Dev logging middleware
 // if (NODE_ENV === 'development') {
@@ -167,9 +167,8 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-});
+const server = app.listen(9191, '0.0.0.0', () => console.log('Server running'));
+
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {

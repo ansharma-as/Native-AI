@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { AuthContext } from '../../contexts/AuthContext';
-import { SafeAreaView } from 'react-native-safe-area-context';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 
 export default function Login() {
   const [email, setEmail] = useState('');

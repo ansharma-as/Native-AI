@@ -4,6 +4,8 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 // import { SafeAreaView } from 'react-native-safe-area-context';
 import { SafeAreaView } from 'react-native';
+import * as SecureStore from 'expo-secure-store';
+
 
 import { ChatContext } from '../contexts/ChatContext';
 import { AuthContext } from '../contexts/AuthContext';
@@ -11,7 +13,7 @@ import { AuthContext } from '../contexts/AuthContext';
 export default function HomeScreen() {
   // Safe context usage with defaults
   const auth = useContext(AuthContext) || {};
-  const chat = useContext(ChatContext) || {};
+  const chat = useContext(ChatContext);
   
   const user = auth.user || {};
   const { 
@@ -50,19 +52,27 @@ export default function HomeScreen() {
 
   // Safe navigation with delay
   const safeNavigate = (path) => {
-    if (!path) return;
-    
-    setTimeout(() => {
+    if (path) {
       router.push(path);
-    }, 10);
+    }
   };
-
+  
   // Safe onRefresh handler
   const onRefresh = async () => {
     setRefreshing(true);
     try {
       if (typeof loadChats === 'function') {
         await loadChats();
+      }
+      // const token = await ;
+    const token = await SecureStore.getItemAsync('authToken');
+    if(!user.authenticated){
+      // If user is not authenticated, navigate to login
+      safeNavigate('/login');
+    }
+      
+      if(!token){
+        safeNavigate('/login');
       }
     } catch (err) {
       console.error("Failed to refresh chats:", err);
@@ -78,8 +88,12 @@ export default function HomeScreen() {
     setLocalLoading(true);
     try {
       const newChat = await createChat();
-      if (newChat && newChat.id) {
-        safeNavigate(`/chat/${newChat.id}`);
+      console.log("New chat created:", newChat);
+      if (newChat && newChat._id) {
+        // safeNavigate(`/chat/${newChat._id}`);
+        router.push(`/chat/${newChat._id}`);
+       
+
       }
     } catch (err) {
       console.error("Failed to create chat:", err);
@@ -91,7 +105,12 @@ export default function HomeScreen() {
   // Safe open chat handler
   const handleOpenChat = (chatId) => {
     if (chatId) {
-      safeNavigate(`/chat/${chatId}`);
+      // console.log("Opening chat:", chatId);
+      try {
+        safeNavigate(`/chat/${chatId}`);
+      } catch (err) {
+        console.error('Navigation failed:', err);
+      }
     }
   };
 
@@ -310,36 +329,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-
-
-// import React from 'react';
-// import { View, Text, ScrollView } from 'react-native';
-// import { SafeAreaView } from 'react-native';
-
-// const index = () => {
-//   return (
-//     <SafeAreaView className="flex-1 bg-gray-100">
-//       <ScrollView className="flex-1">
-//         <View className="p-5">
-//           <Text className="text-3xl font-bold text-gray-800">
-//             Hello, User
-//           </Text>
-//           <Text className="text-base text-gray-600 mt-1">
-//             How can I assist you today?
-//           </Text>
-//         </View>
-        
-//         <View className="mx-5 p-5 bg-white rounded-lg">
-//           <Text className="text-lg font-medium text-gray-800">
-//             Welcome to the App
-//           </Text>
-//           <Text className="text-sm text-gray-500 mt-2">
-//             This is a simplified version to debug rendering issues.
-//           </Text>
-//         </View>
-//       </ScrollView>
-//     </SafeAreaView>
-//   );
-// }
-// export default index

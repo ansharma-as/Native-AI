@@ -2,7 +2,7 @@ import axios from 'axios';
 import Constants from 'expo-constants';
 
 // Get the API URL from environment variables or use a default
-const API_URL = Constants.expoConfig?.extra?.apiUrl || 'hhttp://localhost:9191';
+const API_URL = Constants.expoConfig?.extra?.apiUrl || 'https://3d53-103-47-74-66.ngrok-free.app/api';
 
 class ApiService {
   constructor() {

@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import * as SecureStore from 'expo-secure-store';
 import { router } from 'expo-router';
 import api from '../services/api';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -16,13 +17,23 @@ export function AuthProvider({ children }) {
     async function loadToken() {
       try {
         const storedToken = await SecureStore.getItemAsync('authToken');
+        // console.log('Stored token:', storedToken);
         
         if (storedToken) {
           setToken(storedToken);
           api.setAuthToken(storedToken);
           
           // Get user profile
-          const userData = await api.get('/api/auth/me');
+          const userData = await axios.get('https://3d53-103-47-74-66.ngrok-free.app/api/auth/me' , {
+            headers: {
+              Authorization: `Bearer ${storedToken}`,
+            },
+          }).then(response => response.data)
+          .catch(err => {
+            console.error('Error fetching user data:', err);
+            throw new Error('Failed to fetch user data');
+          });
+        //   console.log('User data:', userData);
           setUser(userData);
         }
       } catch (err) {
@@ -41,7 +52,9 @@ export function AuthProvider({ children }) {
     setError(null);
     
     try {
-      const response = await api.post('/api/auth/login', { email, password });
+        // console.log('Logging in with:', { email, password });
+      const response = await api.post('https://3d53-103-47-74-66.ngrok-free.app/api/auth/login', { email, password });
+        // console.log('Login response:', response);
       const { token: newToken, user: userData } = response;
       
       // Save token to secure storage
@@ -68,16 +81,19 @@ export function AuthProvider({ children }) {
   const register = async (name, email, password) => {
     setLoading(true);
     setError(null);
+    // console.log('Registering user:', { username : name, email, password });
     
     try {
-      const response = await api.post('/api/auth/register', { 
-        name, 
+        // console.log('Registering user:', { name, email, password });
+      const response = await axios.post('https://3d53-103-47-74-66.ngrok-free.app/api/auth/register', { 
+        username : name, 
         email, 
         password,
         preferences: {
           useOfflineMode: false // Default to online mode
         }
       });
+    //   console.log('Registration response:', response);
       
       const { token: newToken, user: userData } = response;
       
@@ -119,7 +135,7 @@ export function AuthProvider({ children }) {
     setLoading(true);
     
     try {
-      const updatedUser = await api.put('/api/auth/preferences', { preferences });
+      const updatedUser = await axios.put('https://3d53-103-47-74-66.ngrok-free.app/api/auth/preferences', { preferences });
       setUser(updatedUser);
       return true;
     } catch (err) {

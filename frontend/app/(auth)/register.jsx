@@ -12,7 +12,8 @@ import {
 } from 'react-native';
 import { Link, router } from 'expo-router';
 import { AuthContext } from '../../contexts/AuthContext';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Register() {
   const [name, setName] = useState('');
