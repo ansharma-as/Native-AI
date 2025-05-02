@@ -151,6 +151,10 @@ app.use(hpp());
 // Mount routes
 app.use('/api', routes);
 
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
 // Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
