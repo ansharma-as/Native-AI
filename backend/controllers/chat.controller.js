@@ -106,7 +106,6 @@ exports.sendMessage = async (req, res) => {
     chat.messages.push({
       role: 'user',
       content: message,
-      sentiment: sentimentType
     });
     
     // Get supportive response based on sentiment
