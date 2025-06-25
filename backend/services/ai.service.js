@@ -11,7 +11,14 @@ const sentiment = new Sentiment();
 class OnlineAIService {
   constructor() {
     this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    this.model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    this.model = this.genAI.getGenerativeModel({ 
+      model: 'gemini-2.0-flash-exp',
+      generationConfig: {
+        temperature: 0.7,
+        topP: 0.9,
+        maxOutputTokens: 2048,
+      }
+    });
   }
 
   // Method to analyze sentiment
@@ -88,6 +95,44 @@ async generateText(userMessage, history = []) {
       return result.response.text();
     } catch (error) {
       console.error('Error generating text with online model:', error);
+      throw error;
+    }
+  }
+
+  // Method to generate streaming text using Gemini API
+  async *generateStreamingText(userMessage, history = []) {
+    try {
+      let chatHistory = [];
+      
+      // Format history for Gemini API with proper role mapping
+      if (history && history.length > 0) {
+        chatHistory = history.map(msg => {
+          // IMPORTANT: Convert 'assistant' role to 'model' for Gemini API
+          const mappedRole = msg.role === 'assistant' ? 'model' : msg.role;
+          
+          return {
+            role: mappedRole,
+            parts: [{ text: msg.content }]
+          };
+        });
+      }
+  
+      // Start chat with history
+      const chat = this.model.startChat({
+        history: chatHistory
+      });
+  
+      // Send message and get streaming response
+      const result = await chat.sendMessageStream(userMessage);
+      
+      for await (const chunk of result.stream) {
+        const chunkText = chunk.text();
+        if (chunkText) {
+          yield chunkText;
+        }
+      }
+    } catch (error) {
+      console.error('Error generating streaming text with online model:', error);
       throw error;
     }
   }

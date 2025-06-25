@@ -1,20 +1,64 @@
-
 // src/controllers/chatController.js
 const Chat = require('../models/chat.model');
 const User = require('../models/user.model');
 const aiService = require('../services/ai.service');
 
-// Get all chats for a user
+// Get all chats for a user (limited to last 10)
 exports.getChats = async (req, res) => {
   try {
     const chats = await Chat.find({ userId: req.user.id })
       .sort({ updatedAt: -1 })
-      .select('title updatedAt messages.length');
+      .limit(10)
+      .select('title updatedAt model_type createdAt');
+    
+    // Add message count
+    const chatsWithCount = chats.map(chat => ({
+      ...chat.toObject(),
+      messageCount: chat.messages ? chat.messages.length : 0
+    }));
+    
+    res.status(200).json({
+      success: true,
+      count: chatsWithCount.length,
+      data: chatsWithCount
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Server error',
+      error: error.message
+    });
+  }
+};
+
+// Search chats
+exports.searchChats = async (req, res) => {
+  try {
+    const { query } = req.query;
+    
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        message: 'Search query is required'
+      });
+    }
+    
+    const chats = await Chat.find({
+      userId: req.user.id,
+      $or: [
+        { title: { $regex: query, $options: 'i' } },
+        { 'messages.content': { $regex: query, $options: 'i' } }
+      ]
+    })
+    .sort({ updatedAt: -1 })
+    .limit(10)
+    .select('title updatedAt model_type createdAt');
     
     res.status(200).json({
       success: true,
       count: chats.length,
-      data: chats
+      data: chats,
+      query
     });
   } catch (error) {
     res.status(500).json({
@@ -56,11 +100,15 @@ exports.getChat = async (req, res) => {
 // Create a new chat
 exports.createChat = async (req, res) => {
   try {
-    const { title } = req.body;
+    const { title, model_type = 'online' } = req.body;
+    
+    // Maintain 10-chat limit before creating new chat
+    await Chat.maintainChatLimit(req.user.id, 10);
     
     const chat = await Chat.create({
       userId: req.user.id,
       title: title || 'New Chat',
+      model_type,
       messages: []
     });
     
@@ -103,37 +151,68 @@ exports.sendMessage = async (req, res) => {
     const sentimentType = service.analyzeSentiment(message);
     
     // Add user message to chat
-    chat.messages.push({
+    const userMessage = {
       role: 'user',
       content: message,
-    });
+      timestamp: new Date(),
+      sentiment: sentimentType
+    };
     
-    // Get supportive response based on sentiment
-    const supportiveResponse = service.getSupportiveResponse(sentimentType, message);
+    chat.messages.push(userMessage);
     
-    // Generate AI response using appropriate model
-    const aiResponse = await service.generateText(
-      message, 
-      chat.messages.slice(-10) // Use last 10 messages as context
-    );
+    // Update model type if different
+    if (chat.model_type !== (useOffline ? 'offline' : 'online')) {
+      chat.model_type = useOffline ? 'offline' : 'online';
+    }
     
-    // Add AI response to chat
-    chat.messages.push({
-      role: 'assistant',
-      content: aiResponse,
-      generatedOffline: useOffline
-    });
-    
-    // Save updated chat
+    // Save chat with user message first
     await chat.save();
     
-    res.status(200).json({
-      success: true,
-      data: {
-        chat,
-        supportiveResponse
-      }
-    });
+    try {
+      // Generate AI response using appropriate model
+      const aiResponse = await service.generateText(
+        message, 
+        chat.messages.slice(-10) // Use last 10 messages as context
+      );
+      
+      // Add AI response to chat
+      const assistantMessage = {
+        role: 'assistant',
+        content: aiResponse,
+        timestamp: new Date(),
+        generatedOffline: useOffline,
+        sentiment: 'neutral'
+      };
+      
+      chat.messages.push(assistantMessage);
+      
+      // Save updated chat
+      await chat.save();
+      
+      // Get supportive response based on sentiment
+      const supportiveResponse = service.getSupportiveResponse(sentimentType, message);
+      
+      res.status(200).json({
+        success: true,
+        data: {
+          chat: chat,
+          userMessage,
+          assistantMessage,
+          supportiveResponse,
+          chatId
+        }
+      });
+      
+    } catch (aiError) {
+      console.error('AI Error:', aiError);
+      
+      res.status(500).json({
+        success: false,
+        message: 'Failed to generate AI response',
+        error: aiError.message
+      });
+    }
+    
   } catch (error) {
     console.error('Error in sendMessage:', error);
     res.status(500).json({
