@@ -56,24 +56,33 @@ class OnlineAIService {
     return "Make sure you're getting enough sleep, eating healthy, and taking care of your mental health. These small habits go a long way!";
   }
 
-  // Method to generate text using Gemini API
-  async generateText(userMessage, history = []) {
+
+// Method to generate text using Gemini API
+async generateText(userMessage, history = []) {
     try {
       let chatHistory = [];
       
-      // Format history for Gemini API
+      // Format history for Gemini API with proper role mapping
       if (history && history.length > 0) {
-        chatHistory = history.map(msg => ({
-          role: msg.role,
-          parts: [{ text: msg.content }]
-        }));
+        chatHistory = history.map(msg => {
+          // IMPORTANT: Convert 'assistant' role to 'model' for Gemini API
+          const mappedRole = msg.role === 'assistant' ? 'model' : msg.role;
+          
+          return {
+            role: mappedRole,
+            parts: [{ text: msg.content }]
+          };
+        });
+        
+        console.log('Mapped history roles for Gemini:', 
+                   chatHistory.map(msg => msg.role).join(', '));
       }
-
+  
       // Start chat with history
       const chat = this.model.startChat({
         history: chatHistory
       });
-
+  
       // Send message and get response
       const result = await chat.sendMessage(userMessage);
       return result.response.text();

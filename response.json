@@ -1,0 +1,546 @@
+// Fetched chats: 
+{
+    "count": 77,
+    "data": [
+        {
+            "_id": "68174c81ee6601e636de63ef",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:16:17.742Z"
+        },
+        {
+            "_id": "68174c6dee6601e636de63ec",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:15:57.357Z"
+        },
+        {
+            "_id": "68174c4dee6601e636de63e4",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:15:25.253Z"
+        },
+        {
+            "_id": "68174c46ee6601e636de63df",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:15:18.735Z"
+        },
+        {
+            "_id": "68174a70ee6601e636de63c9",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:07:28.460Z"
+        },
+        {
+            "_id": "68174a3cee6601e636de63bf",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:06:36.435Z"
+        },
+        {
+            "_id": "68174a39ee6601e636de63b8",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:06:33.004Z"
+        },
+        {
+            "_id": "681749e03aa8e1bd6b60e9aa",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:05:04.002Z"
+        },
+        {
+            "_id": "681749893aa8e1bd6b60e9a0",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:03:37.480Z"
+        },
+        {
+            "_id": "6817497e3aa8e1bd6b60e999",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:03:26.557Z"
+        },
+        {
+            "_id": "6817494a3aa8e1bd6b60e991",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T11:02:34.093Z"
+        },
+        {
+            "_id": "681747083aa8e1bd6b60e988",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T10:52:56.509Z"
+        },
+        {
+            "_id": "6817469d3aa8e1bd6b60e984",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T10:51:09.062Z"
+        },
+        {
+            "_id": "681746733aa8e1bd6b60e97f",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-04T10:50:27.757Z"
+        },
+        {
+            "_id": "681452e03aa8e1bd6b60e970",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T05:06:40.222Z"
+        },
+        {
+            "_id": "681452da3aa8e1bd6b60e96b",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T05:06:34.036Z"
+        },
+        {
+            "_id": "681452a53aa8e1bd6b60e953",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T05:05:41.145Z"
+        },
+        {
+            "_id": "681452a13aa8e1bd6b60e950",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T05:05:37.413Z"
+        },
+        {
+            "_id": "6814528f3aa8e1bd6b60e93f",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T05:05:19.903Z"
+        },
+        {
+            "_id": "681450853aa8e1bd6b60e91e",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:56:37.946Z"
+        },
+        {
+            "_id": "681450603aa8e1bd6b60e918",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:56:00.524Z"
+        },
+        {
+            "_id": "681450423aa8e1bd6b60e913",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:55:30.096Z"
+        },
+        {
+            "_id": "68144ea53aa8e1bd6b60e906",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:48:37.606Z"
+        },
+        {
+            "_id": "68144e313aa8e1bd6b60e900",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:46:41.599Z"
+        },
+        {
+            "_id": "68144e2e3aa8e1bd6b60e8fb",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:46:38.080Z"
+        },
+        {
+            "_id": "68144dc73aa8e1bd6b60e8f6",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:44:55.361Z"
+        },
+        {
+            "_id": "68144d793aa8e1bd6b60e8ed",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:43:37.925Z"
+        },
+        {
+            "_id": "68144d5a3aa8e1bd6b60e8e8",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:43:06.817Z"
+        },
+        {
+            "_id": "68144d0b3aa8e1bd6b60e8e1",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:41:47.712Z"
+        },
+        {
+            "_id": "68144cf63aa8e1bd6b60e8d7",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:41:26.767Z"
+        },
+        {
+            "_id": "68144cb93aa8e1bd6b60e8d2",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:40:25.245Z"
+        },
+        {
+            "_id": "68144c253aa8e1bd6b60e8c3",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:37:57.066Z"
+        },
+        {
+            "_id": "68144c203aa8e1bd6b60e8bc",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:37:52.177Z"
+        },
+        {
+            "_id": "68144c1b3aa8e1bd6b60e8b5",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:37:47.364Z"
+        },
+        {
+            "_id": "68144bcf3aa8e1bd6b60e8b2",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:36:31.033Z"
+        },
+        {
+            "_id": "68144b993aa8e1bd6b60e8af",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:35:37.716Z"
+        },
+        {
+            "_id": "68144b823aa8e1bd6b60e89d",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:35:14.970Z"
+        },
+        {
+            "_id": "68144b823aa8e1bd6b60e89a",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:35:14.889Z"
+        },
+        {
+            "_id": "68144b383aa8e1bd6b60e891",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:34:00.184Z"
+        },
+        {
+            "_id": "681448e53aa8e1bd6b60e885",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:24:05.873Z"
+        },
+        {
+            "_id": "681448733aa8e1bd6b60e880",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:22:11.268Z"
+        },
+        {
+            "_id": "6814484d3aa8e1bd6b60e872",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:21:33.375Z"
+        },
+        {
+            "_id": "6814484a3aa8e1bd6b60e86b",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:21:30.135Z"
+        },
+        {
+            "_id": "681448493aa8e1bd6b60e868",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:21:29.273Z"
+        },
+        {
+            "_id": "681448483aa8e1bd6b60e865",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:21:28.110Z"
+        },
+        {
+            "_id": "681448453aa8e1bd6b60e862",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:21:25.051Z"
+        },
+        {
+            "_id": "681447e63aa8e1bd6b60e851",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:19:50.672Z"
+        },
+        {
+            "_id": "6814479e3aa8e1bd6b60e84e",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:18:38.402Z"
+        },
+        {
+            "_id": "681447773aa8e1bd6b60e83c",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:17:59.250Z"
+        },
+        {
+            "_id": "681447303aa8e1bd6b60e825",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:16:48.839Z"
+        },
+        {
+            "_id": "681446fc3aa8e1bd6b60e822",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:56.810Z"
+        },
+        {
+            "_id": "681446f83aa8e1bd6b60e81d",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:52.058Z"
+        },
+        {
+            "_id": "681446f73aa8e1bd6b60e81a",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:51.346Z"
+        },
+        {
+            "_id": "681446f63aa8e1bd6b60e817",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:50.620Z"
+        },
+        {
+            "_id": "681446f53aa8e1bd6b60e814",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:49.457Z"
+        },
+        {
+            "_id": "681446f43aa8e1bd6b60e811",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:48.572Z"
+        },
+        {
+            "_id": "681446f33aa8e1bd6b60e80e",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:15:47.233Z"
+        },
+        {
+            "_id": "681446913aa8e1bd6b60e803",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:14:09.862Z"
+        },
+        {
+            "_id": "681446753aa8e1bd6b60e7ff",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:13:41.328Z"
+        },
+        {
+            "_id": "6814465d3aa8e1bd6b60e7fb",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:13:17.898Z"
+        },
+        {
+            "_id": "681446493aa8e1bd6b60e7f7",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:12:57.181Z"
+        },
+        {
+            "_id": "681446373aa8e1bd6b60e7f3",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:12:39.263Z"
+        },
+        {
+            "_id": "6814462c3aa8e1bd6b60e7ef",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:12:28.647Z"
+        },
+        {
+            "_id": "6814437a0572535ace0ba5f6",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:58.661Z"
+        },
+        {
+            "_id": "681443760572535ace0ba5f1",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:54.801Z"
+        },
+        {
+            "_id": "681443750572535ace0ba5ee",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:53.982Z"
+        },
+        {
+            "_id": "681443750572535ace0ba5eb",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:53.061Z"
+        },
+        {
+            "_id": "681443730572535ace0ba5e8",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:51.971Z"
+        },
+        {
+            "_id": "681443710572535ace0ba5e3",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:49.575Z"
+        },
+        {
+            "_id": "681443600572535ace0ba5da",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T04:00:32.083Z"
+        },
+        {
+            "_id": "681443390572535ace0ba5d6",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:59:53.856Z"
+        },
+        {
+            "_id": "681443330572535ace0ba5d1",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:59:47.752Z"
+        },
+        {
+            "_id": "681443280572535ace0ba5ce",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:59:36.686Z"
+        },
+        {
+            "_id": "681443260572535ace0ba5cb",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:59:34.623Z"
+        },
+        {
+            "_id": "68143d390572535ace0ba5b9",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:34:17.459Z"
+        },
+        {
+            "_id": "68143b750572535ace0ba5af",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:26:45.311Z"
+        },
+        {
+            "_id": "68143721d34f5ebc495bec00",
+            "messages": [Array
+            ],
+            "title": "New Chat",
+            "updatedAt": "2025-05-02T03:12:48.380Z"
+        }
+    ],
+    "success": true
+}
