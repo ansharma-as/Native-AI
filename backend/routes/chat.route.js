@@ -7,7 +7,8 @@ const {
   sendMessage, 
   deleteChat,
   downloadModel,
-  checkModelStatus
+  checkModelStatus,
+  searchChats
 } = require('../controllers/chat.controller');
 const { protect } = require('../middlewares/auth.middleware');
 
@@ -18,6 +19,9 @@ router.use(protect);
 router.route('/')
   .get(getChats)
   .post(createChat);
+
+// Search chats
+router.get('/search', searchChats);
 
 router.route('/:id')
   .get(getChat)
